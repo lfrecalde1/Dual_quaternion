@@ -37,7 +37,14 @@ h1_dual_norm = norm_dual(h1_dual)
 h2_dual_norm = norm_dual(h2_dual)
 h3_dual_norm = norm_dual(h3_dual)
 
-
+%% Total transformation
 h_total_aux = mult_dual(h1_dual, h2_dual)
 h_total  = mult_dual(h_total_aux, h3_dual)
 
+%% Conjugate of the total trasnformation
+h_total_conjugate = conjugate_dual(h_total)
+identity = mult_dual_matrix(h_total)*h_total_conjugate
+
+%% Get Traslation and rotation ofthe dual quaternion
+h3_traslation =  get_traslatation_dual(h3_dual)
+h3_rotation =  get_rotation_dual(h3_dual)

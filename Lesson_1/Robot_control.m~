@@ -1,0 +1,31 @@
+%% Control Robot based on dual quaternions
+clc, clear all, close all;
+
+%% geometric parameters of the robot
+l_1 = 1;
+theta = -1.54;
+%% Time definition
+ts = 0.05;
+t_final = 10;
+t = (0:ts:t_final);
+[H_traslation_init(: ,1), H_rotation_init(:, 1)] = forward_kinematics(theta, l_1);
+%% Desired Dual quaternion
+t_d = [0;1;0;0];
+angle_d = 0;
+
+%% The rotation is similiar a rotation vector formation
+r_d = rotation_quaternion(angle_d, [0;0;1]);
+h_d =  pose_dual(t_d,r_d);
+h_d_t =  get_traslatation_dual(h_d);
+h_d_r =  get_rotation_dual(h_d);
+
+K1 = 1*eye(4, 4);
+for k = 1:length(t)
+   h_e_t(:, k) = h_d_t - H_traslation_init(:, 1);
+   J = [0; -l_1*sin(theta); l1*cos(theta); 0];
+   
+   theta_p = pinv(J)*K1*h_e_t(:, k);
+   
+    
+end
+
