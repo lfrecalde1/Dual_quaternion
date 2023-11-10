@@ -365,7 +365,7 @@ td = tx*i_ + ty*j_;
 % then, the desired rotation.
 
 % Desired rotation component [rad]
-gamma = 0.49;
+gamma = pi;
 % Desired rotation
 rd = cos(gamma/2.0) + k_*sin(gamma/2.0);
 %% 
