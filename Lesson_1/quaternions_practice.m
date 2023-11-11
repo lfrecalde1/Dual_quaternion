@@ -20,3 +20,5 @@ norm_quat = norm_quaternion(q1)
 inverse_q1 =  inverse_quat(q1)
 
 multi_aux = quaternion_multiply(q1, inverse_q1)
+
+

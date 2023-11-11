@@ -19,6 +19,12 @@ r4_aux = quaternion_multiply(r1, r2);
 
 r4 = quaternion_multiply(r4_aux, r3)
 
+
+
 r1_inv = congujate_quaternion(r1)
 
 r1_unit = quaternion_multiply(r1, r1_inv)
+
+r_aux = [-1;0;0;0]
+
+quaternion_to_angle(r1)
